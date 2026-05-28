@@ -1,0 +1,44 @@
+[project]
+name = "korea-news-market-predictor"
+version = "0.1.0"
+description = "Korean news-based KOSPI/KOSDAQ direction prediction MVP"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.111",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "sqlalchemy>=2.0",
+  "psycopg[binary]>=3.1",
+  "python-dotenv>=1.0",
+  "httpx>=0.27",
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+]
+
+[project.optional-dependencies]
+ml = [
+  "lightgbm>=4.3",
+  "transformers>=4.41",
+  "torch>=2.3",
+  "joblib>=1.4",
+]
+dashboard = [
+  "streamlit>=1.35",
+  "plotly>=5.22",
+]
+dev = [
+  "pytest>=8.2",
+  "pytest-mock>=3.14",
+  "ruff>=0.4",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
